@@ -1,0 +1,46 @@
+name: KT-1000
+version: "0.12.0"
+slug: kt1000
+description: Controle de acesso KT-1000 pela Tuya Cloud
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: false
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:door-closed-lock
+panel_title: KT-1000
+services:
+  - mqtt:want
+options:
+  mqtt_enabled: true
+  mqtt_host: ""
+  mqtt_port: 1883
+  mqtt_username: ""
+  mqtt_password: ""
+  mqtt_tls: false
+  client_id: ""
+  client_secret: ""
+  device_id: ""
+  region: us
+  title: KT-1000
+  scan_interval: 30
+  remote_unlock_enabled: false
+  remote_unlock_mode: open_door
+schema:
+  mqtt_enabled: bool
+  mqtt_host: str
+  mqtt_port: port
+  mqtt_username: str
+  mqtt_password: password
+  mqtt_tls: bool
+  client_id: str
+  client_secret: password
+  device_id: str
+  region: list(us|eu|cn|in)
+  title: str
+  scan_interval: int(30,3600)
+  remote_unlock_enabled: bool
+  remote_unlock_mode: list(open_door|door_operate)
